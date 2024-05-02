@@ -59,7 +59,7 @@ end
 
 
 local function UseTerminal()
-	for i, v in pairs(getgenv().Config.ItemsToBuy) do
+	for i, v in getgenv().Config.ItemsToBuy do
 		local args = {
 			[1] = v.Class,
 			[2] = "{\"id\":\"" .. v.ItemID .. "\"}",
@@ -89,13 +89,13 @@ Message("")
 
 local function Main()
 	-- Loop through all the players
-	for _, player in ipairs(Players:GetPlayers()) do
+	for _, player in Players:GetPlayers() do
 		local PlayerListings = getsenv(game.Players.LocalPlayer.PlayerScripts.Scripts.Game["Trading Plaza"]["Booths Frontend"]).getByOwnerId(player.UserId)
 		if PlayerListings then
-			for ListingID, ListingInfo in pairs(PlayerListings.Listings) do
+			for ListingID, ListingInfo in PlayerListings.Listings do
 				local ItemData = ListingInfo.Item._data
 
-				for _, ItemInConfig in pairs(getgenv().Config.ItemsToBuy) do
+				for _, ItemInConfig in getgenv().Config.ItemsToBuy do
 					if ItemInConfig.ItemID == ItemData.id and ListingInfo.DiamondCost <= ItemInConfig.PriceToBuyAt then
 						local CurrencyDetails = CurrencyData()
 						local PlayerDiamonds = CurrencyDetails.Diamonds.CurrAmt
@@ -123,7 +123,7 @@ local function Main()
 								if BuyItem then
 									local TotalAmount
 
-									for _, ItemData in pairs(save.Get()["Inventory"][ItemInConfig.Class]) do
+									for _, ItemData in save.Get()["Inventory"][ItemInConfig.Class] do
 										if ItemData.id == ItemInConfig.ItemID then
 											TotalAmount = ItemData._am
 										end
