@@ -135,7 +135,7 @@ local function Main()
 
 									local embed = webhook:createEmbed()
 									embed:setTitle(game.Players.LocalPlayer.Name .. " Sniped something")
-									embed:setDescription("🔆 **Item: ** `" .. ItemData.id .. "`\n 🤑 **Total Cost: ** `" .. ListingInfo.DiamondCost * Amount .. "`\n 😍 **Cost Each: ** `" .. ListingInfo.DiamondCost .. "`\n 🥶 **Amount: ** `" .. Amount .. "`\n 🤩 **Now Has: ** `" .. TotalAmount + Amount .. " " .. v.ItemID .. "'s" .. "` \n 💎 **Gems Left: ** `" .. PlayerDiamonds .. "`")
+									embed:setDescription("🔆 **Item: ** `" .. ItemData.id .. "`\n 🤑 **Total Cost: ** `" .. ListingInfo.DiamondCost * Amount .. "`\n 😍 **Cost Each: ** `" .. ListingInfo.DiamondCost .. "`\n 🥶 **Amount: ** `" .. Amount .. "`\n 🤩 **Now Has: ** `" .. TotalAmount + Amount .. " " .. ItemInConfig.ItemID .. "'s" .. "` \n 💎 **Gems Left: ** `" .. PlayerDiamonds .. "`")
 									embed:setColor(Color3.fromRGB(255, 0, 0)) -- Example color, replace with your desired color
 
 									local image
