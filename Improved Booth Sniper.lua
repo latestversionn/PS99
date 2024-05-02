@@ -23,7 +23,6 @@ repeat
 	task.wait(.05)
 until not game.Players.LocalPlayer.PlayerGui:FindFirstChild("__INTRO")
 
-print("[CLIENT] Loaded Game")
 -- Variables
 local webhookBuilder = loadstring(game:HttpGet("https://raw.githubusercontent.com/lilyscripts/webhook-builder/main/webhookBuilder.lua"))()
 local save = require(game.ReplicatedStorage.Library.Client.Save)
@@ -86,6 +85,8 @@ local function UseTerminal()
 	UseTerminal() -- Recursive call
 end
 
+Message("")
+
 local function Main()
 	-- Loop through all the players
 	for _, player in ipairs(Players:GetPlayers()) do
@@ -123,7 +124,7 @@ local function Main()
 									local TotalAmount
 
 									for _, ItemData in pairs(save.Get()["Inventory"][ItemInConfig.Class]) do
-										if ItemData.id == v.ItemID then
+										if ItemData.id == ItemInConfig.ItemID then
 											TotalAmount = ItemData._am
 										end
 									end
@@ -168,7 +169,7 @@ local function Main()
 								local TotalAmount
 
 								for _, ItemData in pairs(save.Get()["Inventory"][ItemInConfig.Class]) do
-									if ItemData.id == v.ItemID then
+									if ItemData.id == ItemInConfig.ItemID then
 										TotalAmount = ItemData._am
 									end
 								end
